@@ -1,11 +1,12 @@
 var olEl = document.querySelector("ol");
-
+var goBackBtn = document.querySelector("#goBack");
+var clearHighscores = document.querySelector("#clearHighscores");
 
 var listOfAllScores = JSON.parse(localStorage.getItem("scoresObject"));
 
-console.log(listOfAllScores.length);
 
-// if(listOfAllScores.length > 0) {
+if(listOfAllScores) {
+    console.log(listOfAllScores.length);
 
     for(var i=0; i < listOfAllScores.length; i++) {
         console.log(listOfAllScores[i].name + " " + listOfAllScores[i].score);
@@ -20,7 +21,15 @@ console.log(listOfAllScores.length);
         }
         olEl.appendChild(liEl);    
     }    
-// }
-document.body.appendChild(olEl);
+}
 
-console.log(listOfAllScores);
+goBackBtn.addEventListener("click", function() {
+
+    window.history.go(-1);
+});
+
+clearHighscores.addEventListener("click", function() {
+
+    localStorage.clear();
+    location.reload();
+});
