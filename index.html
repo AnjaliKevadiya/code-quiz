@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz</title>
 </head>
 <body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <main>
+        <section>
+            <label id="highscore">View Highscores</label>
+            <label id="timer">Time : 0</label>
+        </section>
+        <section class="wrapper">
+            <div class="card text-center quiz-div">
+                <div class="card-body" style="display: block;">
+                  <h1>Coding Quiz Challenge</h1>
+                  <p class="card-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                  <button id="start-quiz" class="btn btn-primary">Start Quiz</button>
+                </div>
+            </div>
+
+            <div class="card text-center questions-div" style="display: none;">
+                <div class="card-body">
+                </div>    
+            </div>
+
+            <div class="card text-center initial-div" style="display: none;">
+                <div class="card-body">
+                    <h3>All done!</h3>
+                    <p>Your final score is <span class="score">0</span>.</p>
+                    <input id="initial" type="text" placeholder="Enter initials"/>
+                    <button id="submit" class="btn btn-primary">Submit</button>
+              </div>    
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
