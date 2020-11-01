@@ -7,6 +7,8 @@ var questionsDiv = document.querySelector(".questions-div");
 var initialDiv = document.querySelector(".initial-div");
 var startQuizBtn = document.querySelector("#start-quiz");
 var scoreEl = document.querySelector(".score");
+var submitScoreBtn = document.querySelector("#submit");
+var initialInput = document.querySelector("#initial");
 
 var correctAnsSound = new Audio("file.wav");
 var wrongeAnsSound = new Audio("file.wav");
@@ -118,3 +120,31 @@ function setTimer() {
         }
     }, 1000);
 }
+
+submitScoreBtn.addEventListener("click", function(event) {
+
+    var initialText = initialInput.value.trim();
+
+    if (initialText === "") {
+        return;
+    }
+    event.preventDefault();    
+    // var userObject = {
+    //     'name' : initialText,
+    //     'score' : score
+    // }
+
+    var oldScores = JSON.parse(localStorage.getItem("scoresObject")) || [];
+
+    var newScore = {
+        'name' : initialText,
+        'score' : score
+    };
+    oldScores.push(newScore);
+
+    localStorage.setItem("scoresObject", JSON.stringify(oldScores));
+
+    window.location.href = "highScore.html";
+
+    // alert(localStorage.getItem(initialText));
+});
