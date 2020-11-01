@@ -66,6 +66,10 @@ function askQuestion() {
 
     if (numberOfQuestion === question) {
         //Will display after quiz over
+
+        initialInput.value = '';
+        initialInput.focus();
+        
         scoreEl.textContent = score;
         questionsDiv.style.display = "none";
         initialDiv.style.display = "block";
@@ -128,12 +132,8 @@ submitScoreBtn.addEventListener("click", function(event) {
     if (initialText === "") {
         return;
     }
-    event.preventDefault();    
-    // var userObject = {
-    //     'name' : initialText,
-    //     'score' : score
-    // }
 
+    // event.preventDefault();    
     var oldScores = JSON.parse(localStorage.getItem("scoresObject")) || [];
 
     var newScore = {
@@ -145,6 +145,4 @@ submitScoreBtn.addEventListener("click", function(event) {
     localStorage.setItem("scoresObject", JSON.stringify(oldScores));
 
     window.location.href = "highScore.html";
-
-    // alert(localStorage.getItem(initialText));
 });
