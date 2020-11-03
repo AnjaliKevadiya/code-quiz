@@ -16,38 +16,58 @@ var wrongeAnsSound = new Audio("file.wav");
 var score = 0;
 var question = 0;
 var setTimer;
-var numberOfQuestion = 3;
+var totalQuestions = 5;
 var timeInterval;
 
 var questionsArray = [
     {   
-        q: "The sky is red.",
-        a: "a",
+        q: "Philology is the",
+        a: "Science of languages",
         options: [
-            "a",
-            "b",
-            "c",
-            "d"
+            "Study of bones",
+            "Study of muscles",
+            "Study of architecture",
+            "Science of languages"
         ]
     },
     {   
-        q: "The sky is blue.",
-        a: "b",
+        q: "The 'Black flag' signifies",
+        a: "Protest",
         options: [
-            "a",
-            "b",
-            "c",
-            "d"
+            "Revolution/danger",
+            "Peace",
+            "Protest",
+            "Truce"
         ]
     },
     {   
-        q: "The sky is green.",
-        a: "c",
+        q: "Thomas Cup is associated with",
+        a: "Badminton",
         options: [
-            "a",
-            "b",
-            "c",
-            "d"
+            "Badminton",
+            "Billiards",
+            "Lawn tennis",
+            "Table tennis"
+        ]
+    },
+    {   
+        q: "Grand Central Terminal, Park Avenue, New York is the world's",
+        a: "Largest railway station",
+        options: [
+            "Largest railway station",
+            "Highest railway station",
+            "Longest railway station",
+            "None of the above"
+        ]
+    },
+    {   
+        q: "The 2006 World Cup Football Tournament held in",
+        a: "Germany",
+        options: [
+            "France",
+            "China",
+            "Germany",
+            "Brazil"
         ]
     }
 ];
@@ -70,7 +90,7 @@ function startQuiz() {
 //Ask Question function
 function askQuestion() {
 
-    if (numberOfQuestion === question) {
+    if (totalQuestions === question) {
 
         questionsDiv.style.display = "none";
 
@@ -138,7 +158,7 @@ submitScoreBtn.addEventListener("click", function(event) {
     if (initialText === "") {
         return;
     }
-    
+
     // event.preventDefault();    
     var oldScores = JSON.parse(localStorage.getItem("scoresObject")) || [];
 
