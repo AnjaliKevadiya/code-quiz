@@ -52,8 +52,13 @@ var questionsArray = [
     }
 ];
 
+//View Highscores Link
+highscore.addEventListener("click", redirectToHighscorePage);
+
+//Start Quiz onClick Listener
 startQuizBtn.addEventListener("click", startQuiz);
 
+//Start Quiz function
 function startQuiz() {
 
     quizDiv.style.display = "none";
@@ -62,17 +67,18 @@ function startQuiz() {
     askQuestion();
 }
 
+//Ask Question function
 function askQuestion() {
 
     if (numberOfQuestion === question) {
-        //Will display after quiz over
 
-        initialInput.value = '';
-        initialInput.focus();
-        
-        scoreEl.textContent = score;
         questionsDiv.style.display = "none";
+
         initialDiv.style.display = "block";
+
+        scoreEl.textContent = score;
+        initialInput.focus();
+        initialInput.value = '';
         return;
     }
 
@@ -132,7 +138,7 @@ submitScoreBtn.addEventListener("click", function(event) {
     if (initialText === "") {
         return;
     }
-
+    
     // event.preventDefault();    
     var oldScores = JSON.parse(localStorage.getItem("scoresObject")) || [];
 
@@ -144,5 +150,9 @@ submitScoreBtn.addEventListener("click", function(event) {
 
     localStorage.setItem("scoresObject", JSON.stringify(oldScores));
 
-    window.location.href = "highScore.html";
+    redirectToHighscorePage();
 });
+
+function redirectToHighscorePage() {
+    window.location.href = "highScore.html";
+}

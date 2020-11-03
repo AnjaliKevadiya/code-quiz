@@ -6,6 +6,10 @@ var listOfAllScores = JSON.parse(localStorage.getItem("scoresObject"));
 
 
 if(listOfAllScores) {
+    // listOfAllScores.score.sort(function(a, b){
+    //     return b-a;
+    // });
+
     console.log(listOfAllScores.length);
 
     for(var i=0; i < listOfAllScores.length; i++) {
@@ -15,9 +19,9 @@ if(listOfAllScores) {
         liEl.textContent = listOfAllScores[i].name + " " + listOfAllScores[i].score;
         
         if(i % 2 == 0) {
-            liEl.setAttribute("class", "list-group-item list-group-item-primary");
+            liEl.setAttribute("class", "bg-info");
         } else {
-            liEl.setAttribute("class", "list-group-item");
+            liEl.setAttribute("class", "bg-light");
         }
         olEl.appendChild(liEl);    
     }    
