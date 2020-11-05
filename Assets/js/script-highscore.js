@@ -1,6 +1,5 @@
-var olEl = document.querySelector("ol");
 var goBackBtn = document.querySelector("#goBack");
-var clearHighscores = document.querySelector("#clearHighscores");
+var clearHighscoresBtn = document.querySelector("#clearHighscores");
 
 var listOfAllScores = JSON.parse(localStorage.getItem("scoresObject"));
 
@@ -42,7 +41,7 @@ goBackBtn.addEventListener("click", function() {
     window.history.go(-1);
 });
 
-clearHighscores.addEventListener("click", function() {
+clearHighscoresBtn.addEventListener("click", function() {
 
     localStorage.clear();
     location.reload();

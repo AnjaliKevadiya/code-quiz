@@ -10,8 +10,11 @@ var scoreEl = document.querySelector(".score");
 var submitScoreBtn = document.querySelector("#submit");
 var initialInput = document.querySelector("#initial");
 
-var correctAnsSound = new Audio("file.wav");
-var wrongeAnsSound = new Audio("file.wav");
+var correctAnsSound = new Audio("Assets/sounds/correct.mp3");
+correctAnsSound.playbackRate = 3.0;
+
+var wrongeAnsSound = new Audio("Assets/sounds/wrong.mp3");
+wrongeAnsSound.playbackRate = 3.0;
 
 var score = 0;
 var question = 0;
@@ -84,7 +87,6 @@ function startQuiz() {
     quizDiv.style.display = "none";
     questionsDiv.style.display = "block";
 
-    setTimer();
     askQuestion();
 }
 
@@ -106,14 +108,17 @@ function askQuestion() {
 
     questionsDiv.innerHTML = "";
 
-    var h3El = document.createElement("h3");
-    h3El.textContent = questionsArray[question].q;
+    var h5El = document.createElement("h5");
+    h5El.textContent = questionsArray[question].q;
 
     var olEl = document.createElement("ol");
     var arrOptions = questionsArray[question].options;
     
+    // var checkEl = document.createElement("h4");
+
     for(var i = 0; i < arrOptions.length; i++) {
         var liEl = document.createElement("li");
+
         liEl.textContent = questionsArray[question].options[i];
         liEl.id = questionsArray[question].options[i];
         liEl.style.textAlign = "left";
@@ -121,9 +126,11 @@ function askQuestion() {
         liEl.onclick = function() {
             if (this.id === questionsArray[question].a) {
                 score += 5;
-                // correctAnsSound.play();
+                correctAnsSound.play();
+                // checkEl.textContent = "Correct";
             } else {
-                // wrongeAnsSound.play();
+                wrongeAnsSound.play();
+                // checkEl.textContent = "Wrong";
             }
             clearInterval(timeInterval);
             question++;
@@ -131,10 +138,11 @@ function askQuestion() {
         }
         olEl.appendChild(liEl);
     }
+    // var hrEl = document.createElement("hr");
 
-    questionsDiv.append(h3El, olEl);
+    questionsDiv.append(h5El, olEl);
 
-    // setTimer();
+    setTimer();
 }
 
 function setTimer() {
