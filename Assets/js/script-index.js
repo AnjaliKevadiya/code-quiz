@@ -84,6 +84,7 @@ function startQuiz() {
     quizDiv.style.display = "none";
     questionsDiv.style.display = "block";
 
+    setTimer();
     askQuestion();
 }
 
@@ -96,6 +97,7 @@ function askQuestion() {
 
         initialDiv.style.display = "block";
 
+        timer.textContent = "Time : 0";
         scoreEl.textContent = score;
         initialInput.focus();
         initialInput.value = '';
@@ -132,18 +134,18 @@ function askQuestion() {
 
     questionsDiv.append(h3El, olEl);
 
-    setTimer();
+    // setTimer();
 }
 
 function setTimer() {
     
-    var timeLeft = 5;
+    var timeLeft = 15;
     timeInterval = setInterval(function() {
         timer.textContent = "Time : " + timeLeft;
         timeLeft--;
 
-        if(timeLeft == -1) {
-            timeLeft.textContent = "Time : 5";
+        if(timeLeft == 0) {
+            timeLeft.textContent = "Time : 15";
             clearInterval(timeInterval);
             question++;
             askQuestion();

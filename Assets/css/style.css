@@ -20,3 +20,11 @@
 .questions-div {
   border: none;
 }
+
+.table {
+  border-collapse: collapse;
+}
+
+.table td {
+  padding: 0;
+}
