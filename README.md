@@ -22,7 +22,7 @@ WHEN the game is over
 THEN I can save my initials and score
 ```
 
-#### Check out my [Site](https://anjalikevadiya.github.io/code-quiz/).
+#### Check out my [Site](https://anjalikevadiya.github.io/gk-quiz/).
 
 ---
 
